@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap');
+
+html {
+    --accent-color: #039be5;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+header {
+    display: block;
+    padding: 5px 15px;
+}
+
+main section.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 25px;
+}
+
+main section.top .numero-semana {
+    border: solid var(--accent-color) 1px;
+    text-align: center;
+}
+
+main section.top .numero-semana div {
+    padding: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+ul#lista-equipe {
+    font-weight: 500;
+    line-height: 30px;
+    font-size: 1.15em;
+}
+
+hr {
+    display: block;
+    width: 100%;
+    border: solid 1px #ccc;
+}
+
+.text-accent {
+    color: var(--accent-color);
+}
+.bg-accent {
+    background-color: var(--accent-color);
+}
+.white-text {
+    color: #fff;
+}
