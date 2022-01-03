@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escala Tickets</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <header class="bg-accent white-text">
+        <h2>Escala de Tickets</h2>
+    </header>
+
+    <main>
+
+        <section class="top">
+            <div>
+                <p>
+                    Há algumas semanas, o <span class="text-accent">Sinex Sales</span> vem trabalhando com escala de Tickets.
+                </p>
+                <span>
+                    Segue abaixo a equipe responsável pelo atendimento de tickets na atual semana.
+                </span>
+            </div>
+            <aside class="numero-semana">
+                <header class="bg-accent white-text">Número da semana:</header>
+                <div id="numero-semana"></div>
+            </aside>
+        </section>
+
+        <hr>
+
+        <section>
+
+            Esta semana, os tickets devem ser tratados pela seguinte equipe:
+
+            <ul id="lista-equipe"></ul>
+        </section>
+
+    </main>
+
+    <script src="./week-number-extension.js"></script>
+    <script src="./equipes.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
