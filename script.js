@@ -1,12 +1,15 @@
 const obterEquipeAtual = (equipeInicial, numeroSemana) => {
 
-    const qtdeEquipes = 3;
+    const qtdeEquipes = equipeInicial.length;
 
-    const isSemanaInicial = equipeInicial.find(e => e.semanaInicial == numeroSemana);
+    const equipeSemanaInicial = equipeInicial.find(e => e.semanaInicial == numeroSemana);
 
-    if (isSemanaInicial != null) {
+    /**
+     * Iniciar busca pela semana inicial de cada equipe
+     */
+    if (equipeSemanaInicial != null) {
 
-        return isSemanaInicial.equipe;
+        return equipeSemanaInicial;
     }
 
     for (const equipe of equipeInicial) {
@@ -15,34 +18,45 @@ const obterEquipeAtual = (equipeInicial, numeroSemana) => {
     
         if (isEquipeDaSemana) {
 
-            return equipe.equipe;
+            return equipe;
         }
     }
+
+    return {};
 }
 
-const numeroSemanaAtual = new Date().getWeekNumber();
+const CURRENT_WEEK_NUMBER = new Date().getWeekNumber();
 
-const equipeAtual = obterEquipeAtual(equipes, numeroSemanaAtual);
+const EQUIPES_FILE = "./equipes.json";
 
-const intervaloEscalaRef = document.getElementById('intervalo-semana');
-const listaEquipeRef = document.getElementById('lista-equipe');
-const numeroSemanaRef = document.getElementById('numero-semana');
+fetch(EQUIPES_FILE, { method: 'GET' })
+.then(response => response.json())
+.then(response => {
 
-/**
- * Preenchendo numero semana
- */
-const spanNumeroSemana = document.createElement("span");
-spanNumeroSemana.innerText = numeroSemanaAtual;
+    const equipeAtual = obterEquipeAtual(response.equipes, CURRENT_WEEK_NUMBER);
 
-numeroSemanaRef.appendChild(spanNumeroSemana);
+    const intervaloEscalaRef = document.getElementById('intervalo-semana');
+    const listaEquipeRef = document.getElementById('lista-equipe');
+    const numeroSemanaRef = document.getElementById('numero-semana');
 
-/**
- * Preenchendo lista pessoas
- */
-for (const pessoa of equipeAtual.nomes) {
+    /**
+     * Preenchendo numero semana
+     */
+    const spanNumeroSemana = document.createElement("span");
+    spanNumeroSemana.innerText = CURRENT_WEEK_NUMBER;
 
-    const listItem = document.createElement("li");
-    listItem.innerText = pessoa;
+    numeroSemanaRef.appendChild(spanNumeroSemana);
 
-    listaEquipeRef.appendChild(listItem);
-}
+    /**
+     * Preenchendo lista pessoas
+     */
+    for (const pessoa of equipeAtual.nomes) {
+
+        const listItem = document.createElement("li");
+        listItem.innerText = pessoa;
+
+        listaEquipeRef.appendChild(listItem);
+    }
+
+})
+.catch(err => console.error("Não foi possível obter as equipes", err));

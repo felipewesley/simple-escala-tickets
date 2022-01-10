@@ -1,0 +1,27 @@
+{
+    "equipes": [
+
+        {
+            "id": 1,
+            "semanaInicial": 1,
+            "nomes": [
+                "Carlos Escalona", "Felipe Basso"
+            ]
+        },
+        {
+            "id": 2,
+            "semanaInicial": 2,
+            "nomes": [
+                "Marianna Belniok", "Débora Maciel"
+            ]
+        },
+        {
+            "id": 3,
+            "semanaInicial": 3,
+            "nomes": [
+                "Gabriel Seima", "Isabel Sleigman", "Jhonathan Rowinski"
+            ]
+        }
+    ]
+    
+}
