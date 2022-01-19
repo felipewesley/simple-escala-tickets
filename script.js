@@ -1,3 +1,5 @@
+import { getWeekNumber } from "./extensions/week-number-extension.js";
+
 const obterEquipeAtual = (equipeInicial, numeroSemana) => {
 
     const qtdeEquipes = equipeInicial.length;
@@ -25,7 +27,8 @@ const obterEquipeAtual = (equipeInicial, numeroSemana) => {
     return {};
 }
 
-const CURRENT_WEEK_NUMBER = new Date().getWeekNumber();
+// const CURRENT_WEEK_NUMBER = new Date().getWeekNumber();
+const CURRENT_WEEK_NUMBER = getWeekNumber();
 
 const EQUIPES_FILE = "./equipes.json";
 

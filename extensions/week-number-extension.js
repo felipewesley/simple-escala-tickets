@@ -2,10 +2,12 @@
  * 
  * @returns {number} Número da semana do ano
  */
- function getWeekNumber() {
+export function getWeekNumber() {
+
+    const originalDate = new Date();
 
     // Copy date so don't modify original
-    const d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+    const d = new Date(Date.UTC(originalDate.getFullYear(), originalDate.getMonth(), originalDate.getDate()));
 
     const dayNum = d.getUTCDay() || 7;
     d.setUTCDate(d.getUTCDate() + 4 - dayNum);
@@ -14,4 +16,4 @@
     return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
 };
 
-Date.prototype.getWeekNumber = getWeekNumber;
+// Date.prototype.getWeekNumber = getWeekNumber;
